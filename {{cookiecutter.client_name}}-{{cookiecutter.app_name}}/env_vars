@@ -1,0 +1,6 @@
+#!/bin/bash
+# source this script with:
+# source env_vars
+
+export IP="{{cookiecutter.ip}}"
+export URL="{{cookiecutter.url}}"

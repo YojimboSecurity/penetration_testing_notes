@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nmap -p- -sV -sC "$IP" --open
