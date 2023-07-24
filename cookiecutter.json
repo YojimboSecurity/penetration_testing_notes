@@ -1,11 +1,12 @@
 {
     "client_name": "Client Name",
     "app_name": "Application Name",
+    "engagement_type":["web_app", "network"],
+    "network": {
+        "base":"",
+        "set":[]
+    },
     "url": "http://127.0.0.1",
     "ip": "127.0.0.1",
-    "testing_date": "{% now 'utc', '%Y.%m.%d'%}",
-    "software": "y",
-    "system": "y",
-    "network": "y",
-    "web_app": "y"
+    "testing_date": "{% now 'utc', '%Y.%m.%d'%}"
 }

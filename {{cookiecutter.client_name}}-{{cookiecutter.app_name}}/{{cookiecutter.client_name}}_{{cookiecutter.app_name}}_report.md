@@ -1,31 +1,18 @@
-# OS:
-## Web-Technology:
-## Hostname:
+---
+Client: {{ cookiecutter.client_name }}
+App: {{ cookiecutter.app_name }}
+Created: {{ cookiecutter.testing_date }}
+---
 
-### IP:
-{{cookiecutter.ip}}
-
-### URL:
-{{cookiecutter.url}}
-
-### USERS:
-1.
-
-### CREDENTIALS:
-1.
-
-### To-Try LIST:
-
-### NMAP RESULTS:
-
-```
-
-```
-
-### Web Services Enumeration:
-
-
-### OTHER / PRIVILEGE-ESCALATION:
-
-
-## Take Away Concepts:
+{% if cookiecutter.engagement_type  == 'web_app'  %}
+    {% set ip = cookiecutter.ip %}
+    {% include "notes.md" %}
+{% elif cookiecutter.engagement_type == 'network' %}
+    {% set network = cookiecutter.network %}
+## Network base: {{ network.base }}
+## Network sets: {{ network.sets }}
+    {% for i in network.sets %}
+        {% set ip = network.base+'.'+i|string %}
+        {% include "notes.md" %}
+    {% endfor %}
+{% endif %}
