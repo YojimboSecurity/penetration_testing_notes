@@ -112,6 +112,23 @@ Repo:
 cookiecutter gh:YojimboSecurity/penetration_testing_notes
 ```
 
+You can add multipule IP addresses by selecting `network` from the `engagement_type`
+and when presented with `network` add `{"base": "192.168.1", "sets": [1,2,3]}`.
+Naturaly replace `192.168.1` with your IP base and replace `1,2,3` whith your
+values.
+
+For example, I have the following IPs I want to add to my notes.
+
+192.168.64.1
+192.168.64.22
+192.168.64.23
+
+I would add the following dictionary to the `network` option.
+
+```
+{"base": "192.168.64", "sets": [1,22,23]}
+```
+
 ## Roadmap
 
 See the [open issues](https://github.com/YojimboSecurity/penetration-testing-notes/issues) for a list of proposed features (and known issues).
