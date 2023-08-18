@@ -252,6 +252,7 @@ print_all() {
     print_nmap_http_methods
     print_smtp_user_enum
     print_command_execution
+    print_rev_shell
 }
 
 _help() {
@@ -273,6 +274,7 @@ _help() {
     echo "  nmap-http-methods     Print Nmap HTTP-methods section"
     echo "  smtp-user-enum        Print SMTP USER ENUM section"
     echo "  command-execution     Print Command Execution Verification section"
+    echo "  rev_shell             Print Reverse Shell"
     echo "  list                  Display this list"
     echo "  help                  Display this help"
 }
@@ -284,6 +286,9 @@ main() {
 
     for arg in "$@"; do
         case "$arg" in
+            rev_shell)
+                print_rev_shell
+                ;;
             nmap)
                 print_nmap
                 ;;
