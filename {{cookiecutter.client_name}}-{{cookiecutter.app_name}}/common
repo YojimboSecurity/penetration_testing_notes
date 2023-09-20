@@ -49,14 +49,15 @@ EOF
 print_gobuster_directory() {
     cat <<EOF
 ===gobuster directory
-gobuster dir -u  -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt -l -k -t 30
+gobuster dir -u "$URL" -w /opt/SecLists/Discovery/Web-Content/raft-medium-directories.txt -k -t 30
 EOF
 }
 
 print_gobuster_files() {
     cat <<EOF
 ===gobuster files
-gobuster dir -u  -w /opt/SecLists/Discovery/Web-Content/raft-medium-files.txt -l -k -t 30
+gobuster dir -u "$URL" -w /opt/SecLists/Discovery/Web-Content/raft-medium-files.txt -k -t 30
+gobuster dir -u "$URL" -w /opt/SecLists/Discovery/Web-Content/common.txt -t 80 -a Linux -x .txt,.php
 EOF
 }
 
