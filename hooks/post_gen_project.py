@@ -1,13 +1,15 @@
 import os
-from pathlib import Path
 
-path = Path(".")
+import os
 
-def walk_path(path: Path):
-    for i in path.iterdir():
-        if i.is_dir:
-            walk_path(i)
-        if i.name == "README.txt":
-            os.remove(i.absolute())
-               
-walk_path(path)
+REMOVE_PATHS = [
+    'screenshots/README.txt',
+    'vuln/README.txt',
+    'files/README.txt',
+]
+
+for path in REMOVE_PATHS:
+    path = path.strip()
+    if path and os.path.exists(path):
+        os.unlink(path) if os.path.isfile(path) else os.rmdir(path)
+
