@@ -1,5 +1,15 @@
 #!/bin/bash
 
+print_display_privs(){
+    cat <<EOF
+===============================================================================
+===Display privs===========
+whoami /priv
+sudo -l
+EOF
+
+}
+
 print_nmap() {
     cat <<EOF
 ===============================================================================
@@ -260,12 +270,14 @@ print_all() {
     print_smtp_user_enum
     print_command_execution
     print_rev_shell
+    print_display_privs
 }
 
 _help() {
     echo "Usage: $0 [OPTIONS]"
     echo "Options:"
     echo "  all                   Print the entire text"
+    echo "  display               Print display privs"
     echo "  nmap                  Print Nmap section"
     echo "  wpscan                Print WPScan & SSL section"
     echo "  nikto                 Print Nikto with SSL and Evasion section"
