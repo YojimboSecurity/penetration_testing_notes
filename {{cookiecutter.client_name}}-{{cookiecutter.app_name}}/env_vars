@@ -4,3 +4,22 @@
 
 export IP="{{cookiecutter.ip}}"
 export URL="{{cookiecutter.url}}"
+
+main(){
+    for arg in "$@"
+    do
+        case "$arg" in
+            192.168.*.*)
+                local new_ip
+                new_ip="$1"
+                echo "replacing $IP with $new_ip"
+                sed -i 's/'"$IP"'/'"$new_ip"'/g' env_vars
+                ;;
+        esac
+        shift
+
+    done
+
+}
+
+main "$@"
