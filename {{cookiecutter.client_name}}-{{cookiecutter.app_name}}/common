@@ -1,5 +1,16 @@
 #!/bin/bash
 
+print_compile(){
+    cat <<EOF
+######DLL###############
+x86_64-w64-mingw32-gcc myDLL.cpp --share -o myDLL.dll
+
+############ EXE ###########
+x86_64-w64-mingw32-g++ myDLL.cpp --shared -o myDLL.dll
+
+EOF
+}
+
 print_display_privs(){
     cat <<EOF
 ===============================================================================
